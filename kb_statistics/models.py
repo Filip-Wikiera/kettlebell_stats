@@ -32,11 +32,10 @@ class Session(models.Model):
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     rep_count = models.IntegerField()
     weight = models.DecimalField(max_digits=5, decimal_places=2)
-    duration = models.DurationField(null=True, blank=True)
     date = models.DateField()
     bottom_up = models.BooleanField(choices=bottom_up, default=False)
     hand = models.CharField(max_length=2, choices=hands_variants)
     person = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.exercise.name) + str(self.date)
+        return f"{self.exercise.name} {self.rep_count} reps with {self.weight} kg"
