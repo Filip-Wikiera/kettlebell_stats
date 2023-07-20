@@ -1,0 +1,106 @@
+/* style.css */
+
+/* Ustawienie koloru tła strony */
+body {
+  background-color: #f7f4e9;
+}
+
+/* Stylowanie nagłówka strony */
+header {
+  background-color: #c1b8a5;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Stylowanie elementów nawigacyjnych */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  background-color: #f2eae2;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+nav a {
+  color: #3b3b3b;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size: 20px;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: #c1b8a5;
+}
+
+/* Stylowanie treści strony */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+/* Stylowanie formularzy */
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+form button[type="submit"] {
+  background-color: #0077b6;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+  background-color: #005d8f;
+}
+
+/* Stylowanie alertów */
+.alert {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+}
+.main-content {
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
