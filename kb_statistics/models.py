@@ -2,21 +2,21 @@ from django.db import models
 from django.contrib.auth.models import User
 
 hands_variants = [
-        ("1H", "One Hand"),
-        ("2H", "Two hands"),
-        ("Db", "Double"),
-    ]
+    ("1H", "One Hand"),
+    ("2H", "Two hands"),
+    ("Db", "Double"),
+]
 bottom_up = [
-        (False, "Standard"),
-        (True, "Bottom up")]
+
+    (False, "Standard"),
+    (True, "Bottom up")]
 type = [
-        ("B", "Balistics"),
-        ("G", "Grind")
+    ("B", "Balistics"),
+    ("G", "Grind")
 ]
 
 
 class Exercise(models.Model):
-
     name = models.CharField(max_length=50)
     allow_bottom_up = models.BooleanField()
     allow_one_hand = models.BooleanField()
