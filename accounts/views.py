@@ -8,12 +8,3 @@ class SignUpView(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
-
-
-def login(request):
-    context = {}
-    return render(request, 'login.html', context)
-
-
-def profile(request):
-    return render(request, 'profile.html')

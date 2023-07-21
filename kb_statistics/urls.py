@@ -6,5 +6,5 @@ urlpatterns = [
     path('index/', views.index, name='kb_statistics'),
     path('kb_statistics/', views.index, name='kb_statistics'),
     path('calendar/', views.index, name='calendar'),
-    path('add session/', views.index, name='add session'),
+    path('add session/', views.session, name='add session'),
 ]

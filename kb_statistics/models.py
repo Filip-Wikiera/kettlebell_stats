@@ -36,7 +36,7 @@ class Session(models.Model):
     bottom_up = models.BooleanField(choices=bottom_up, default=False)
     hand = models.CharField(max_length=2, choices=hands_variants, default=hands_variants[0][0])
     person = models.ForeignKey(User, on_delete=models.CASCADE)
-    description = models.TextField(default="")
+    description = models.TextField(default=" ")
 
     def __str__(self):
         return f"{self.exercise.name} {self.rep_count} reps with {self.weight} kg"
