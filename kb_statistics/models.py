@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from schedule.models import Event
 
 hands_variants = [
     ("1H", "One Hand"),
@@ -37,6 +38,14 @@ class Session(models.Model):
     hand = models.CharField(max_length=2, choices=hands_variants, default=hands_variants[0][0])
     person = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField(default=" ")
+
+    def create_event(self):
+        event = Event.objects.create(
+            title=self.__str__(),
+            start=self.date,
+            end=self.date,
+        )
+        return event
 
     def __str__(self):
         return f"{self.exercise.name} {self.rep_count} reps with {self.weight} kg"

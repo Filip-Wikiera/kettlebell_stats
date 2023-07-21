@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from .models import Session
 from .forms import SessionFrom
+from django.views.generic import UpdateView
 
 
 def index(request):
@@ -33,3 +35,10 @@ def session(request):
         }
 
     return render(request, "session.html", context)
+
+
+def edit_session(UpdateView):
+    model = SessionFrom.Meta.model
+    fields = SessionFrom.Meta.fields
+    template_name = 'session.html'
+    success_url = '/calendar/'
