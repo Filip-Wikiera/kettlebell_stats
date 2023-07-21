@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import Session
 from .forms import SessionFrom
-from django.views.generic import UpdateView
 
 
 def index(request):
@@ -35,6 +34,11 @@ def session(request):
         }
 
     return render(request, "session.html", context)
+
+
+def CalendarView(request):
+    events = Session.objects.filter(person=request.user)
+    return render(request, 'calendar.html', {'Session': events})
 
 
 def edit_session(UpdateView):
