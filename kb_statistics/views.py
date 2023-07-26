@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import Session
-from .forms import SessionFrom
-from .classes.EventCalendar import EventCalendar
+from .forms import SessionFrom, MonthPicker
 from datetime import datetime
 from django.utils.safestring import mark_safe
 from calendar import HTMLCalendar
@@ -15,10 +14,6 @@ def index(request):
 
 
 def session(request):
-    context = {
-        'message': '',
-        'form': SessionFrom()
-    }
     if request.method == "POST":
         form = SessionFrom(request.POST)
         if form.is_valid():
@@ -29,6 +24,12 @@ def session(request):
                 "form": form
             }
             return render(request, 'session.html', context)
+        else:
+            context = {
+                'message': "Save error",
+                "form": form
+            }
+
 
     else:
         form = SessionFrom()
@@ -42,9 +43,22 @@ def session(request):
 
 def CalendarView(request):
     today = datetime.today()
-    events = Session.objects.filter(person=request.user, date__month=today.month)
 
-    cal = HTMLCalendar().formatmonth(today.year, today.month)
+    selected_month = today.month
+    selected_year = today.year
+
+    if request.method == 'POST':
+        form = MonthPicker(request.POST)
+        if form.is_valid():
+            selected_month = int(form.cleaned_data['month'])
+            selected_year = int(form.cleaned_data['year'])
+    else:
+        form = MonthPicker()
+
+    events = Session.objects.filter(person=request.user, date__month=selected_month)
+    events = events.filter(date__year=selected_year)
+
+    cal = HTMLCalendar().formatmonth(selected_year, selected_month)
 
     for day in range(1, 32):
         cal = cal.replace(f'>{day}</td>', f'<td>{day} </td>')
@@ -58,7 +72,8 @@ def CalendarView(request):
 
     context = {
         'calendar': mark_safe(cal),
-        'sessions': events
+        'sessions': events,
+        'form': form
     }
 
     return render(request, 'calendar.html', context)

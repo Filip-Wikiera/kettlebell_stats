@@ -37,7 +37,7 @@ class Session(models.Model):
     bottom_up = models.BooleanField(choices=bottom_up, default=False)
     hand = models.CharField(max_length=2, choices=hands_variants, default=hands_variants[0][0])
     person = models.ForeignKey(User, on_delete=models.CASCADE)
-    description = models.TextField(default=" ")
+    description = models.TextField(default=" ", null=True, blank=True)
 
     def create_event(self):
         event = Event.objects.create(

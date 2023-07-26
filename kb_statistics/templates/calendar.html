@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/form_inline.css' %}">
+
+<form action="{% url 'calendar' %}" method="post">
+    {% csrf_token %}
+    <label for="{{ form.month.id_for_label }}">Month:</label>
+    {{ form.month }}
+    <label for="{{ form.year.id_for_label }}">Year:</label>
+    {{ form.year }}
+    <button type="submit">Submit</button>
+</form>
+
 <link rel="stylesheet" href="{% static 'css/table.css' %}">
 <div>
     {{ calendar|safe }}
