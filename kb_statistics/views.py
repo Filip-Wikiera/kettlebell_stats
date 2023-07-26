@@ -4,8 +4,7 @@ from .forms import SessionFrom, MonthPicker
 from datetime import datetime
 from django.utils.safestring import mark_safe
 from calendar import HTMLCalendar
-from django.db.models import Avg, Sum, F, Func
-from django.db.models.functions import Round
+from django.db.models import Avg, Sum, F
 
 
 def index(request):
@@ -72,11 +71,8 @@ def CalendarView(request):
     cal = cal.replace('<td ', '<td class="calendar-day" ')
     cal = cal.replace('<th ', '<th class="calendar-header" ')
 
-    class Round(Func):
-        function = 'ROUND'
-        arity = 2
-
-    exercise_avg_data = Session.objects.values('exercise__name').annotate(
+    exercise_avg_data = events.values('exercise__name').annotate(
+        # exercise_avg_data = Session.objects.values('exercise__name').annotate(
 
         avg_rep_count=Avg('rep_count'),
         avg_weight=Avg('weight'),
