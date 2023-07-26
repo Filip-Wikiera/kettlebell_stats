@@ -48,4 +48,4 @@ class Session(models.Model):
         return event
 
     def __str__(self):
-        return f"{self.exercise.name} {self.rep_count} reps with {self.weight} kg"
+        return f"{self.exercise.name} {self.rep_count} x {self.weight} kg"

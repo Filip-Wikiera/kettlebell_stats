@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     'kb_statistics',
     'accounts',
     'schedule',
+    'csp',
 
 ]
 
 MIDDLEWARE = [
+    'csp.middleware.CSPMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -127,3 +129,16 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+# CSP_DEFAULT_SRC = ("'self'",)
+# CSP_IMG_SRC = ("'self'",)
+# CSP_SCRIPT_SRC = ("'self'",)
+# CSP_STYLE_SRC = ("'self'",)
+# CSP_FONT_SRC = ("'self'",)
+# CSP_CONNECT_SRC = ("'self'",)
+# CSP_FRAME_SRC = ("'self'",)
+
+CSP_HEADERS = {
+    # 'default-src': "'self'",
+    'meta': {'http-equiv': 'X-Content-Type-Options', 'content': 'nosniff'},
+}

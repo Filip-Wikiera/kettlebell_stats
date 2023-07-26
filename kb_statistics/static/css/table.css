@@ -1,0 +1,28 @@
+table{
+    border-collapse: collapse;
+}
+
+th,td{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+th{
+    background-color: #f2f2f2;
+}
+
+td{
+    width:14%;
+    background-color: #fff;
+}
+
+.today{
+    background-color: #e0f3ff;
+    font-weight: bold;
+}
+
+.calendar-day:not(.today):hover{
+    background-color: #f2f2f2;
+    cursor: pointer;
+}

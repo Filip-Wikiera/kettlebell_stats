@@ -1,11 +1,9 @@
 /* style.css */
 
-/* Ustawienie koloru tła strony */
 body {
   background-color: #f7f4e9;
 }
 
-/* Stylowanie nagłówka strony */
 header {
   background-color: #c1b8a5;
   padding: 20px;
@@ -13,7 +11,6 @@ header {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Stylowanie elementów nawigacyjnych */
 nav {
   display: flex;
   justify-content: space-between;
@@ -37,7 +34,6 @@ nav a:hover {
   color: #c1b8a5;
 }
 
-/* Stylowanie treści strony */
 main {
   max-width: 800px;
   margin: 0 auto;
@@ -54,7 +50,6 @@ p {
   margin-bottom: 20px;
 }
 
-/* Stylowanie formularzy */
 form label {
   display: block;
   margin-bottom: 5px;
@@ -88,7 +83,6 @@ form button[type="submit"]:hover {
   background-color: #005d8f;
 }
 
-/* Stylowanie alertów */
 .alert {
   background-color: #d4edda;
   color: #155724;
@@ -105,34 +99,31 @@ form button[type="submit"]:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
- .calendar {
+table{
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    font-family: Arial, sans-serif;
+    border-collapse: collapse;
 }
 
-.calendar-header {
-    background-color: #f0f0f0;
+th,td{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+th{
+    background-color: #f2f2f2;
+}
+
+td{
+    background-color: #fff;
+}
+
+.today{
+    background-color: #e0f3ff;
     font-weight: bold;
 }
 
-.calendar-day {
-    border: 1px solid #ccc;
-    text-align: center;
-    width: 14.28%;
-    padding: 10px 0;
+.calendar-day:not(.today):hover{
+    background-color: #f2f2f2;
+    cursor: pointer;
 }
-
-.calendar-day.empty {
-    background-color: #f0f0f0;
-}
-
-.calendar-event {
-    background-color: #007bff;
-    color: #fff;
-    padding: 2px;
-    margin: 2px;
-    display: block;
-    text-decoration: none;
