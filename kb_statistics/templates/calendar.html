@@ -16,5 +16,29 @@
 <div>
     {{ calendar|safe }}
 </div>
+<br><br><br>
+
+<h2 align="center">During this month you preformed:</h2>
+<br><br><br>
+<table>
+        <tr>
+            <th>Exercise</th>
+            <th>Average Rep Count</th>
+            <th>Average Weight</th>
+            <th>Total Reps</th>
+            <th>Total Tonnage</th>
+        </tr>
+{% for exercise_data in exercise_avg_data %}
+<tr>
+    <td>{{ exercise_data.exercise__name }}</td>
+    <td>{{ exercise_data.avg_rep_count|floatformat:2 }}</td>
+    <td>{{ exercise_data.avg_weight|floatformat:2 }} kg</td>
+    <td>{{ exercise_data.total_reps }}</td>
+    <td>{{ exercise_data.total_tonnage }} kg</td>
+</tr>
+{% endfor %}
+</table>
+
+</div>
 
 {% endblock %}
